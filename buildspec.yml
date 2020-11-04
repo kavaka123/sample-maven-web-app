@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    runtime_versions:
+      java: corretto11
+  post_build:
+    commands:
+      - mvn package
+      - mvn target/my-web-app.war my-web-app.war
+      
+artifacts:
+  files:
+    - my-web-app.war
+    - .ebextensions/**/*
+          
